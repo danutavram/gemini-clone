@@ -150,3 +150,8 @@
         background-position: 800px 0px;
     }
 }
+.result-data p{
+    font-size: 17px;
+    font-weight: 350;
+    line-height: 1.8;
+}
