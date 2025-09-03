@@ -1,20 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-*{
-  padding: 0;
+/* Tailwind v4 imports */
+@import "tailwindcss/preflight";  /* înlocuiește @tailwind base */
+@import "tailwindcss/utilities"; /* înlocuiește components + utilities */
+@import "tailwindcss";
+
+/* Reset global */
+* {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: Outfit;
+  font-family: "Outfit", sans-serif;
 }
-#root{
+
+/* Root container */
+#root {
   min-height: 100vh;
   display: flex;
   animation: fadeIn 1.5s;
 }
-@keyframes fadeIn{
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Custom utility for hiding scrollbars */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }

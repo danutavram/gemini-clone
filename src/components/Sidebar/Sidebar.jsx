@@ -15,21 +15,21 @@ const Sidebar = () => {
 
 
   return (
-    <div className='sidebar'>
+    <div className='hidden sm:inline-flex flex-col justify-between bg-gray-100 min-h-screen p-6 w-auto'>
         <div className="top">
-            <img onClick={()=>setExtended(prev=>!prev)} className='menu' src={assets.menu_icon} alt="" />
-            <div onClick={()=>newChat()} className="new-chat">
-              <img src={assets.plus_icon} alt="" />
+            <img onClick={()=>setExtended(prev=>!prev)} className='w-5 h-5 ml-2 cursor-pointer' src={assets.menu_icon} alt="" />
+            <div onClick={()=>newChat()} className="flex items-center gap-2 bg-gray-200 rounded-full text-sm to-gray-500 cursor-pointer px-4 py-2 mt-12">
+              <img src={assets.plus_icon} alt="" className='w-5 h-5' />
               {extended ? <p>New Chat</p> : null}
             </div>
             {extended ?
-            <div className="recent">
-              <p className="recent-title">Recent</p>
+            <div className="flex flex-col animate-fadeIn">
+              <p className="mt-8 mb-5 text-gray-700 font-medium">Recent</p>
               {prevPrompts.map((item, index)=>{
                 return (
-              <div onClick={()=>loadPrompt(item)} className="recent-entry">
-                <img src={assets.message_icon} alt="" />
-                <p>{item.slice(0,18)}...</p>
+              <div onClick={()=>loadPrompt(item)} className="flex items-start gap-2 px-4 py-2 rounded-full text-gray-800 cursor-pointer hover:bg-gray-200">
+                <img src={assets.message_icon} alt="" className='w-5 h-5' />
+                <p className='text-sm truncate max-w-[160px]'>{item.slice(0,18)}...</p>
               </div>
 
                 )
@@ -37,17 +37,17 @@ const Sidebar = () => {
             </div>
             : null}
         </div>
-        <div className="bottom">
-          <div className="bottom-item recent-entry">
-            <img src={assets.question_icon} alt="" />
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-200">
+            <img src={assets.question_icon} alt="" className='w-5 h-5' />
             {extended ? <p>Help</p> : null}
           </div>
-          <div className="bottom-item recent-entry">
-            <img src={assets.history_icon} alt="" />
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-200">
+            <img src={assets.history_icon} alt="" className='w-5 h-5' />
             {extended ? <p>Activity</p> : null}
           </div>
-          <div className="bottom-item recent-entry">
-            <img src={assets.setting_icon} alt="" />
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-200">
+            <img src={assets.setting_icon} alt="" className='w-5 h-5' />
             {extended ? <p>Settings</p> : null}
           </div>
 
