@@ -103,19 +103,34 @@ const Main = () => {
               type="text"
               placeholder="Enter a prompt here"
               className="flex-1 bg-transparent border-none outline-none text-base sm:text-lg"
-              onKeyDown={(e) =>{
-                if(e.key === "Enter" && input.trim() !== ""){
-                  onSent(input)
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && input.trim() !== "") {
+                  onSent(input);
+                  setInput("");
                 }
               }}
             />
-            
+
             <div className="flex items-center gap-3 sm:gap-4">
-              <img src={assets.gallery_icon} className="w-6 h-6 cursor-pointer" />
-              <img src={assets.mic_icon} alt="" className="w-6 h-6 cursor-pointer"  />
+              <img
+                src={assets.gallery_icon}
+                className="w-6 h-6 cursor-pointer"
+              />
+              <img
+                src={assets.mic_icon}
+                alt=""
+                className="w-6 h-6 cursor-pointer"
+              />
               {input ? (
-                <img onClick={() => onSent()} src={assets.send_icon} alt=""
-                className="w-6 h-6 cursor-pointer" />
+                <img
+                  onClick={() => {
+                    onSent();
+                    setInput("");
+                  }}
+                  src={assets.send_icon}
+                  alt=""
+                  className="w-6 h-6 cursor-pointer"
+                />
               ) : null}
             </div>
           </div>
