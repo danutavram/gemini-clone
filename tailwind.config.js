@@ -1,21 +1,19 @@
-import tailwindcss from '@tailwindcss/vite';
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}", 
   ],
   theme: {
     extend: {
       keyframes: {
-        loader: {
-          "0%": { backgroundPosition: "-800px 0px" },
-          "100%": { backgroundPosition: "800px 0px" },
+        shimmer: {
+          '0%': { 'background-position': '-200% 0' },
+          '100%': { 'background-position': '200% 0' },
         },
       },
       animation: {
-        loader: "loader 3s linear infinite",
+        shimmer: 'shimmer 1.5s linear infinite',
       },
     },
   },

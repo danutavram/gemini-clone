@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import "./Main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
 
@@ -82,7 +81,7 @@ const Main = () => {
                   {[...Array(3)].map((_, idx) => (
                     <hr
                       key={idx}
-                      className="h-5 rounded bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-[length:200%_100%] animate-loader"
+                      className="h-5 rounded bg-gradient-to-r from-blue-200 via-gray-100 to-blue-200 bg-[length:200%_100%] animate-loader"
                     />
                   ))}
                 </div>
@@ -104,7 +103,13 @@ const Main = () => {
               type="text"
               placeholder="Enter a prompt here"
               className="flex-1 bg-transparent border-none outline-none text-base sm:text-lg"
+              onKeyDown={(e) =>{
+                if(e.key === "Enter" && input.trim() !== ""){
+                  onSent(input)
+                }
+              }}
             />
+            
             <div className="flex items-center gap-3 sm:gap-4">
               <img src={assets.gallery_icon} className="w-6 h-6 cursor-pointer" />
               <img src={assets.mic_icon} alt="" className="w-6 h-6 cursor-pointer"  />

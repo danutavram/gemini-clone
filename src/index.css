@@ -16,7 +16,7 @@
 #root {
   min-height: 100vh;
   display: flex;
-  animation: fadeIn 1.5s;
+  animation: fadeIn 1.5s ease forwards;
 }
 
 /* Fade-in animation */
@@ -24,6 +24,14 @@
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
+@keyframes loader {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .animate-loader {
+    animation: loader 3s linear infinite;
+    background-size: 200% 100%;
+  }
 
 /* Custom utility for hiding scrollbars */
 @layer utilities {
